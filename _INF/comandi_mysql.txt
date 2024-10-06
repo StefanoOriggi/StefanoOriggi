@@ -1,0 +1,3 @@
+desc = descrive una tables
+desc \G = diverso tipo di descrizione
+SELECT * FROM $TABELLA = vedo i campi caricati in una tabella
