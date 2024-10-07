@@ -24,7 +24,6 @@ CREATE TABLE Acquisto(
     FOREIGN KEY(cod_cliente) REFERENCES Cliente(cod_cliente),
 	cod_prodotto INT(7),
     FOREIGN KEY(cod_prodotto) REFERENCES Prodotto(cod_prodotto));
-    
 
 INSERT INTO Cliente(cod_cliente,cognome,citta)
 VALUES
