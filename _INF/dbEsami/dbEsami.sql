@@ -1,4 +1,4 @@
--- Active: 1729340232831@@127.0.0.1@3306@dbEsami
+-- Active: 1729347607622@@127.0.0.1@3306@classicmodels
 -- Active: 1729332167935@@127.0.0.1@3306@dbEsami
 CREATE TABLE scuola (
     id INT PRIMARY KEY,
@@ -275,3 +275,27 @@ ADD
 --QUERY7
 ALTER TABLE
     corso DROP COLUMN ssd;
+
+
+CREATE USER 'segrataria'@'localhost' IDENTIFIED BY 'segrataria';
+
+GRANT SELECT ON dbEsami.* TO 'segrataria'@localhost;
+GRANT INSERT ON dbEsami.* TO 'segrataria'@localhost;
+GRANT UPDATE ON dbEsami.* TO 'segrataria'@localhost;
+
+CREATE USER 'guest'@'%' IDENTIFIED BY 'guest';
+
+GRANT SELECT ON dbEsami.studente TO 'guest'@'%';
+GRANT SELECT ON dbEsami.titolo_studio TO 'guest' @'%';
+GRANT SELECT ON dbEsami.scuola TO 'guest' @'%';
+
+CREATE ROLE esami;
+GRANT SELECT, INSERT, UPDATE ON dbEsami.esame TO esami;
+
+CREATE ROLE modifica;
+GRANT SELECT, UPDATE ON dbEsami.* TO modifica;
+
+CREATE USER utente1,utente2,utente3 IDENTIFIED BY 'prova';
+
+GRANT esami to utente1,utente2;
+GRANT modifica to utente3;
