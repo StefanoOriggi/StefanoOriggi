@@ -1,0 +1,6 @@
+@esAPI2_HostAddress = http://localhost:5131
+
+GET {{esAPI2_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
