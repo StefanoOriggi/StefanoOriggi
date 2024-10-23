@@ -1,0 +1,10 @@
+p {
+    color: yellow;
+    text-align: center;
+}
+p.testo{
+    color: aquamarine;
+}
+#lomb {
+    color: red;
+}
