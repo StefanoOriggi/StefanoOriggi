@@ -270,11 +270,11 @@ WHERE
 ALTER TABLE
     esame
 ADD
-    COLUMN Superato BOOL;
+    COLUMN Superato BOOL; --AFTER 'nome colonna' per inserire in pos specifica
 
 --QUERY7
-ALTER TABLE
-    corso DROP COLUMN ssd;
+ALTER TABLE corso 
+DROP COLUMN ssd;
 
 
 CREATE USER 'segrataria'@'localhost' IDENTIFIED BY 'segrataria';
