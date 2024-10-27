@@ -73,7 +73,7 @@ CREATE TABLE esame (
 
 CREATE USER 'admin' @'%' IDENTIFIED BY 'admin';
 
-GRANT ALL PRIVILEGES ON dbEsami.* TO 'admin' @'%';
+GRANT ALL PRIVILEGES ON dbEsami.* TO 'admin' @'%'; 
 
 USE dbEsami;
 
