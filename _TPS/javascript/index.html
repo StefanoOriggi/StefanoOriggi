@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prova con JavaScript</title>
-    <script src="script.js"></script>
 </head>
 <body>
+    <script>
+        function funzione(){
+            document.getElementById("idProva").innerHTML = "Hello JavaScript!";
+        }
+    </script>
     <h1>Header 1</h1>
-    <p id="idProva">Paragrafo 1</p>
-    <button type="button" onclick="ProvaFunzione()">Prova</button>
+    <p id="idProva"></p>
 </body>
 </html>

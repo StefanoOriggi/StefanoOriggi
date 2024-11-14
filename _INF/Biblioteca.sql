@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `Biblioteca`.`Libri` (
     `ID_Autore` INT(11) NULL DEFAULT NULL,
     PRIMARY KEY (`ID_Libro`),
     INDEX `ID_Autore` (`ID_Autore` ASC) VISIBLE,
-    CONSTRAINT `Libri_ibfk_1` FOREIGN KEY (`ID_Autore`) REFERENCES `Biblioteca`.`Autori` (`ID_Autore`) on delete cascade on update cascade
+    CONSTRAINT `Libri_ibfk_1` FOREIGN KEY (`ID_Autore`) REFERENCES `Biblioteca`.`Autori` (`ID_Autore`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB AUTO_INCREMENT = 6;
 
 -- -----------------------------------------------------
@@ -45,84 +45,69 @@ CREATE TABLE IF NOT EXISTS `Biblioteca`.`Prestiti` (
     PRIMARY KEY (`ID_Prestito`),
     INDEX `ID_Libro` (`ID_Libro` ASC) VISIBLE,
     INDEX `ID_Utente` (`ID_Utente` ASC) VISIBLE,
-    CONSTRAINT `Prestiti_ibfk_1` FOREIGN KEY (`ID_Libro`) REFERENCES `Biblioteca`.`Libri` (`ID_Libro`) on delete cascade on update cascade,
-    CONSTRAINT `Prestiti_ibfk_2` FOREIGN KEY (`ID_Utente`) REFERENCES `Biblioteca`.`Utenti` (`ID_Utente`) on update cascade on delete cascade
+    CONSTRAINT `Prestiti_ibfk_1` FOREIGN KEY (`ID_Libro`) REFERENCES `Biblioteca`.`Libri` (`ID_Libro`) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT `Prestiti_ibfk_2` FOREIGN KEY (`ID_Utente`) REFERENCES `Biblioteca`.`Utenti` (`ID_Utente`) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE = InnoDB AUTO_INCREMENT = 6;
 
 -- Query 1
-create view LibriAutori as
-select
-    Libri.Titolo as TitoloLibri,
-    Autori.Nome as NomeAutore,
-    Autori.Cognome as CognomeAutore
-from
-    Libri
-    join Autori on Libri.ID_Libro = Autori.ID_Autore;
+CREATE VIEW LibriAutori AS
+SELECT
+    Libri.Titolo AS TitoloLibri,
+    Autori.Nome AS NomeAutore,
+    Autori.Cognome AS CognomeAutore
+FROM Libri
+    JOIN Autori ON Libri.ID_Libro = Autori.ID_Autore;
 
 -- Query 2
-select
-    *
-from
-    LibriAutori
-    join Autori
-where
+SELECT *
+FROM LibriAutori
+    JOIN Autori
+WHERE
     Autori.Nazionalita = 'Italiana';
 
 -- Query 3
-create view PrestitiAttivi as
-select
+CREATE VIEW PrestitiAttivi AS
+SELECT
     Prestiti.ID_Prestito,
-    Libri.Titolo as TitoloLibri,
+    Libri.Titolo AS TitoloLibri,
     Libri.Anno_Pubblicazione,
-    Utenti.Nome as NomeUtente,
-    Utenti.Cognome as CognomeUtente,
-    Utenti.Email as EmailUtente
-from
-    Prestiti
-    join Libri on Prestiti.ID_Libro = Libri.ID_Libro
-    join Utenti on Prestiti.ID_Utente = Utenti.ID_Utente
-where
-    Data_Restituzione is null;
+    Utenti.Nome AS NomeUtente,
+    Utenti.Cognome AS CognomeUtente,
+    Utenti.Email AS EmailUtente
+FROM Prestiti
+    JOIN Libri ON Prestiti.ID_Libro = Libri.ID_Libro
+    JOIN Utenti ON Prestiti.ID_Utente = Utenti.ID_Utente
+WHERE
+    Data_Restituzione IS NULL;
 
 -- Query 4
-select
+SELECT
     NomeUtente,
     CognomeUtente,
     EmailUtente
-from
-    PrestitiAttivi;
+FROM PrestitiAttivi;
 
 -- Query 5
-create view NumeroLibri as
-select
-    Autori.Nome as NomeAutore,
-    Autori.Cognome as CognomeAutore,
-    count(Libri.ID_Libro)
-from
-    Autori
-    join Libri on Autori.ID_Autore = Libri.ID_Autore
-group by
+CREATE VIEW NumeroLibri AS
+SELECT Autori.Nome AS NomeAutore, Autori.Cognome AS CognomeAutore, count(Libri.ID_Libro)
+FROM Autori
+    JOIN Libri ON Autori.ID_Autore = Libri.ID_Autore
+GROUP BY
     NomeAutore,
     CognomeAutore;
 
 -- Query 7
 CREATE VIEW VistaNumeroPrestitiLibri AS
-SELECT
-    Libri.Titolo as TitoloLibro,
-    COUNT(Prestiti.ID_Prestito) as NumeroPrestiti
-FROM
-    Libri
-    LEFT JOIN Prestiti on Libri.ID_Libro = Prestiti.ID_Libro
+SELECT Libri.Titolo AS TitoloLibro, COUNT(Prestiti.ID_Prestito) AS NumeroPrestiti
+FROM Libri
+    LEFT JOIN Prestiti ON Libri.ID_Libro = Prestiti.ID_Libro
 GROUP BY
     Libri.Titolo;
 
 -- Query 8
 CREATE VIEW VistaNumeroPrestiti AS
-SELECT
-    Libri.Titolo as TitoloLibro,
-    COUNT(Prestiti.ID_Prestito) as NumeroPrestiti
-FROM
-    Libri
-    LEFT JOIN Prestiti on Libri.ID_Libro = Prestiti.ID_Libro
+SELECT Libri.Titolo AS TitoloLibro, COUNT(Prestiti.ID_Prestito) AS NumeroPrestiti
+FROM Libri
+    LEFT JOIN Prestiti ON Libri.ID_Libro = Prestiti.ID_Libro
 GROUP BY
     Libri.Titolo;
