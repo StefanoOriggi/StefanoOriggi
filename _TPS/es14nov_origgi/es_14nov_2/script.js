@@ -1,7 +1,11 @@
 function Inserimento() {
     let input = document.getElementById("input").value;
-    let array = input.split(",").map(stringa => stringa.trim());
-    let dispari = array.filter(stringa => stringa.length % 2 != 0)
-    let output = dispari.join(",");
-    document.getElementById("output").innerHTML = output;
+    let array = input.split(",");
+    let dispari = [];
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].length % 2 != 0) {
+            dispari[i] = array[i];
+        }
+    }
+    document.getElementById("output").innerHTML = dispari;
 }
