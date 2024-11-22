@@ -4,7 +4,6 @@ function fullscreen() {
     const article = document.querySelector("article");
     const aside = document.querySelector("aside");
     const navBar = document.querySelector("nav");
-    
     aside.hidden = true;
     navBar.hidden = true;
     article.hidden = false;
