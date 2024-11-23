@@ -6,6 +6,4 @@ function fullscreen() {
     const navBar = document.querySelector("nav");
     aside.hidden = true;
     navBar.hidden = true;
-    article.hidden = false;
-
 }
