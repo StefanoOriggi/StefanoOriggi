@@ -15,5 +15,5 @@ function Limitato(x) {
         Inverti(x);
     }
     else
-        alert("Limite di inversioni raggiunto (max 3)");
+        alert("Limite di inversioni raggiunto (max 3); counter inversioni" + limite);
 }
