@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 5</title>
+    <script>
+        function sostituisciParagrafo() {
+            const listItems = document.querySelectorAll('ul li');
+            listItems.forEach(item => {
+                const numSpazi = item.textContent.trim().split(' ').length - 1;
+                item.textContent = numSpazi;
+            });
+        }
+    </script>
+</head>
+<body>
+    <ul>
+        <button onclick="sostituisciParagrafo()">button</button>
+        <li>paragrafo 1 3 4       < /li>
+        <li>paragrafo</li>
+        <li>paragrafo 123</li>
+        <li>paragrafo 12 3 </li>
+    </ul>
+</body>
+</html>
