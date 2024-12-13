@@ -1,4 +1,5 @@
 using cinema.Data;
+using cinema.EndPoints;
 using cinema.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,8 +18,8 @@ builder.Services.AddDbContext<CinemaContext>(dbcontextOptions =>
 
 builder.Services.AddOpenApiDocument(config =>
 {
-    config.DocumentName = "LibreriaApi";
-    config.Title = "Libreria v1";
+    config.DocumentName = "cinemaAPI";
+    config.Title = "cinema v1";
     config.Version = "v1";
 });
 var app = builder.Build();
@@ -34,5 +35,5 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-app.MapGet("/", () =>"Hello World!");
+app.MapAttoriEndPoints();
 app.Run();

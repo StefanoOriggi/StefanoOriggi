@@ -11,5 +11,7 @@ namespace cinema.Models
         public string Nome { get; set; }
         public string Cognome { get; set; }
         public string Nazionalita { get; set; }
+
+        public List<Film> Films { get; set; } = [];
     }
 }

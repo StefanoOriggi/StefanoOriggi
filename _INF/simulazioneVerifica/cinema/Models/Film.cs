@@ -11,6 +11,6 @@ namespace cinema.Models
         public DateTime DataUscita { get; set; }
         public string Genere { get; set; }
         public int RegistaId { get; set; }
-        public Regista Regista { get; set; }
+        public Regista Regista { get; set; }=null!;
     }
 }
