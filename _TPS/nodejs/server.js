@@ -1,10 +1,13 @@
 var http = require('http');
 var fs = require('fs');
 
+
 http.createServer(function (req, res) {
-  fs.readFile('index.html', function (err, data) {
-    res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.write(data);
-    return res.end();
+  res.writeHead(200, { 'Content-Type': 'text/text' });
+  res.end('Hello World!');
+  var _url = req.url
+
+  fs.appendFile("response.txt", req.url + "\n", function(err) {
+    if (err) throw err;
   });
-}).listen(8080);
+}).listen(8080);  
