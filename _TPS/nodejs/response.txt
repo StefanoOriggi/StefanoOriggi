@@ -4,3 +4,9 @@
 /favicon.ico
 /prova/3/stocazzo
 /favicon.ico
+/
+/favicon.ico
+/prova/4/stocazzo
+/favicon.ico
+/prova/10/stocazzo
+/favicon.ico
