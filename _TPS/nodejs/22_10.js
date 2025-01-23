@@ -7,7 +7,7 @@ http.createServer(function (req, res) {
   res.end('Hello World!');
   var _url = req.url
 
-  fs.appendFile("response.txt", _url + "\n", function(err) {
+  fs.appendFile('log.txt', "At " + Date() + ": " + req.url + "\n", function(err) {
     if (err) throw err;
   });
 }).listen(8080);  
