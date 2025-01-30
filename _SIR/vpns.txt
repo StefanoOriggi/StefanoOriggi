@@ -1,0 +1,31 @@
+Analisi e progettazione di una VPN:
+
+1- Spiega in cosa consiste il tunneling in una vpn e fornisci un esempio pratico.
+Il tunneling è un processo utilizzato durante la creazione di vpn per garantire una comunicazione sicura e privata attraverso le reti pubbliche; i pacchetti vengono incapsulati all'interno di un'altro pacchetto rendendoli sicuri.
+
+Esempio: se un utente volesse connettersi alla rete della sua azienda da casa, potrebbe fare ciò utilizzando una vpn: questo infatti stabilirà un 'tunnel' sicuro tra la sua macchina e il server della vpn dell'azienda.
+
+
+
+2- Qual'è il ruolo dell'incapsulazione e come contribuisce alla sicurezza del traffico di una vpn?
+L'incapsulazione è il processo di avvolgere un pacchetto di dati all'interno di un altro pacchetto. 
+Questo meccanismo è essenziale nelle vpn cosi da per proteggere il traffico di rete.
+
+Protezione dei dati: 
+L'incapsulazione nasconde il contenuto originale dei pacchetti, rendendoli illeggibili a chiunque intercetti il traffico.
+
+Mascheramento delle informazioni: 
+L'incapsulazione nasconde anche informazioni come gli indirizzi IP di origine e destinazione, sostituendolicon quelli del tunnel VPN. 
+
+Combinazione con la crittografia: L'incapsulazione è spesso combinata con la crittografia per garantire chei dati siano sicuri durante il transito.
+
+
+3- Descrivi le prinicipali differenze tra cifratura simmetrica e asimmetrica e come vengono utilizzate nelle vpn.
+
+ - Simmetrica: esiste una sola chiave sia per cifrare, che per decifrare il pacchetto. l'algoritmo di cifratura è meno complesso rispetto all'asimmetrica però piu veloce di quest'ultima.
+
+ - Asimmetrica: C'è la presenza di due chiavi differenti, una pubblica ed una privata. essendo una cifratura più complessa rende il processo più lento rispetto a quello precedente.
+
+
+4. Spiega il processo di handshake e perché è essenziale nella creazione di una connessione sicura.
+
