@@ -29,3 +29,6 @@ Combinazione con la crittografia: L'incapsulazione è spesso combinata con la cr
 
 4. Spiega il processo di handshake e perché è essenziale nella creazione di una connessione sicura.
 
+Il processo di handshake è una fase cruciale nella creazione di una connessione sicura, come quella stabilita da una VPN (Virtual Private Network). Durante l'handshake, il client e il server si scambiano informazioni per negoziare i parametri della connessione, autenticarsi reciprocamente e stabilire una chiave di crittografia simmetrica che verrà utilizzata per proteggere i dati scambiati.
+
+
