@@ -1,0 +1,10 @@
+APPUNTI MONGODB
+
+- Creare un database: user {nomeDb}
+- Creare una collezione: db.createCollections('nome')
+- Aggiungere un elemento: db.collection.insertOne(json)
+- Stampare: db.collection.find()
+- $set: imposto un valore per uno/diversi determinati oggetti 
+- $inc : incrementa di uno il valore del elemento voluto 
+- 
+- 
