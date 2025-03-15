@@ -1,6 +1,5 @@
 var mongo = require('mongodb').MongoClient
 var express = require('express');
-
 var app = express();
 let url = 'mongodb://localhost:27017';
 
