@@ -1,0 +1,6 @@
+@EsempioCookie_HostAddress = http://localhost:5222
+
+GET {{EsempioCookie_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
